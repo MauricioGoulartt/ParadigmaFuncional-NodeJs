@@ -8,20 +8,25 @@ const simbols = [
   '.', '?', '-', ',', '"', '♪', "_", '<i>', '</i>', '\r', '[', ']', '(', ')'
 ]
 
-fn.readDir(pathWay)
-  .then(fn.endsFilter(".srt"))
-  .then(fn.mapFiles)
-  .then(fn.mescElementos)
-  .then(fn.separarTextPor('\n'))
-  .then(fn.removeVoid)
-  .then(fn.removePattern("-->"))
-  .then(fn.removeNumber)
-  .then(fn.removeChar(simbols))
-  .then(fn.mescElementos)
-  .then(fn.separarTextPor(' '))
-  .then(fn.removeVoid)
-  .then(fn.removeNumber)
-  .then(fn.agruparElementos)
-  .then(fn.ordenarPorAtrNum('qtde', 'dec'))
-  .then(console.log);
+const palavrasMaisUsadas = fn.composicao(
+  fn.readDir,
+  fn.endsFilter(".srt"),
+  fn.mapFiles,
+  fn.mescElementos,
+  fn.separarTextPor('\n'),
+  fn.removeVoid,
+  fn.removePattern("-->"),
+  fn.removeNumber,
+  fn.removeChar(simbols),
+  fn.mescElementos,
+  fn.separarTextPor(' '),
+  fn.removeVoid,
+  fn.removeNumber,
+  fn.agruparElementos,
+  fn.ordenarPorAtrNum('qtde', 'dec'),
+)
+
+palavrasMaisUsadas(pathWay)
+  .then(console.log)
+  
   
