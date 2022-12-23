@@ -4,7 +4,7 @@
 
  Filtro das legendas de uma Série do Netflix (Brooklyn Nine-Nine).
  
- (Closure, Currying Functions)
+ concepts: (Closure, Currying, Functors)
  
  Paradigma Funcional.
  
